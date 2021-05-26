@@ -30,4 +30,18 @@ class Hospital
     doctors.map { |doctor| doctor.name }
   end
 
+  def doctors_by_specialty
+    hash = Hash.new
+    doctors.each do |doctor|
+      specialty = doctor.specialty
+      name = doctor.name
+      if hash[specialty]
+        hash[specialty] << name
+      else
+        hash[specialty] = [name]
+      end
+    end
+    hash
+  end
+
 end

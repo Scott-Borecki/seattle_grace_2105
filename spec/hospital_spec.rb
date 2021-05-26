@@ -56,6 +56,15 @@ RSpec.describe Hospital do
       expect(@seattle_grace.doctors_by_name).to eq(expected)
     end
 
+    it 'can return doctors by specialty' do
+      expected = {
+        "General Surgery"   => ["Meredith Grey"],
+        "Pediatric Surgery" => ["Alex Karev"]
+      }
+      expect(@seattle_grace.doctors_by_specialty).to be_an_instance_of(Hash)
+      expect(@seattle_grace.doctors_by_specialty).to eq(expected)
+    end
+
   end
 
 end

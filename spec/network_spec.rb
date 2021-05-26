@@ -57,6 +57,21 @@ RSpec.describe Network do
       expect(@gsmn.doctors_by_hospital).to be_an_instance_of(Hash)
       expect(@gsmn.doctors_by_hospital).to eq(expected)
     end
+
+    xit 'can return doctors in the network by specialty' do
+      expected = {
+        "General Surgery"   => ["Meredith Grey", "Miranda Bailey"],
+        "Pediatric Surgery" => ["Alex Karev"],
+        "Neurosurgery"      => ["Derek Sheperd"]
+      }
+      expect(@gsmn.doctors_by_specialty).to be_an_instance_of(Hash)
+      expect(@gsmn.doctors_by_specialty).to eq(expected)
+    end
+
+    it 'can return the average doctors salary in network' do
+      expect(@gsmn.average_doctors_salary).to be_an_instance_of(Float)
+      expect(@gsmn.average_doctors_salary).to eq(116250.00)
+    end
   end
 
 end

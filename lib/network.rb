@@ -17,11 +17,24 @@ class Network
   end
 
   def doctors_by_hospital # Refactor if time permits
-    doctors_by_hospital = Hash.new
+    hash = Hash.new
     hospitals.map do |hospital|
-      doctors_by_hospital[hospital] = hospital.doctors_by_name
+      hash[hospital] = hospital.doctors_by_name
     end
-    doctors_by_hospital
+    hash
+  end
+
+  # def doctors_by_specialty
+  #   hash = Hash.new
+  #   hospitals.each do |hospital|
+  #
+  #   end
+  # end
+
+  def average_doctors_salary
+    total_salary = hospitals.sum { |hospital| hospital.total_salary }
+    num_doctors = hospitals.sum { |hospital| hospital.doctors.length }
+    total_salary.fdiv(num_doctors)
   end
 
 end
