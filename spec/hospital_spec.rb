@@ -34,15 +34,26 @@ RSpec.describe Hospital do
       expect(@seattle_grace.total_salary).to eq(190000)
     end
 
-    it 'can return the lowest paid doctor' do
+    it 'can return the lowest paid doctor name' do
       expect(@seattle_grace.lowest_paid_doctor).to be_an_instance_of(String)
       expect(@seattle_grace.lowest_paid_doctor).to eq("Alex Karev")
+    end
+
+    it 'can return the highest paid doctor' do
+      expect(@seattle_grace.highest_paid_doctor).to be_an_instance_of(Doctor)
+      expect(@seattle_grace.highest_paid_doctor).to eq(@meredith)
     end
 
     it 'can return specialties of doctors' do
       expected = ["General Surgery", "Pediatric Surgery"]
       expect(@seattle_grace.specialties).to be_an_instance_of(Array)
       expect(@seattle_grace.specialties).to eq(expected)
+    end
+
+    it 'can return doctors by name' do
+      expected = ["Meredith Grey", "Alex Karev"]
+      expect(@seattle_grace.doctors_by_name).to be_an_instance_of(Array)
+      expect(@seattle_grace.doctors_by_name).to eq(expected)
     end
 
   end

@@ -18,8 +18,16 @@ class Hospital
     doctors.min_by { |doctor| doctor.salary }.name
   end
 
+  def highest_paid_doctor
+    doctors.max_by {|doctor| doctor.salary }
+  end
+
   def specialties
     doctors.map { |doctor| doctor.specialty }
+  end
+
+  def doctors_by_name
+    doctors.map { |doctor| doctor.name }
   end
 
 end
