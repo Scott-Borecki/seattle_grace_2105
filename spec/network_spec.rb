@@ -58,7 +58,7 @@ RSpec.describe Network do
       expect(@gsmn.doctors_by_hospital).to eq(expected)
     end
 
-    xit 'can return doctors in the network by specialty' do
+    it 'can return doctors in the network by specialty' do
       expected = {
         "General Surgery"   => ["Meredith Grey", "Miranda Bailey"],
         "Pediatric Surgery" => ["Alex Karev"],

@@ -24,12 +24,15 @@ class Network
     hash
   end
 
-  # def doctors_by_specialty
-  #   hash = Hash.new
-  #   hospitals.each do |hospital|
-  #
-  #   end
-  # end
+  def doctors_by_specialty
+    hash = Hash.new { |hash, key| hash[key] = []}
+    hospitals.select do |hospital|
+      hospital.doctors.select do |doctor|
+        hash[doctor.specialty] << doctor.name
+      end
+    end
+    hash
+  end
 
   def average_doctors_salary
     total_salary = hospitals.sum { |hospital| hospital.total_salary }
