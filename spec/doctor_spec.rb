@@ -4,7 +4,12 @@ require './lib/doctor'
 RSpec.describe Doctor do
 
   before(:each) do
-    @meredith = Doctor.new({name: "Meredith Grey", specialty: "General Surgery", education: "Harvard University", salary: 100_000})
+    @meredith = Doctor.new({
+      name:      "Meredith Grey",
+      specialty: "General Surgery",
+      education: "Harvard University",
+      salary:    100_000
+    })
   end
 
   describe 'Object Creation' do

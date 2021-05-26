@@ -5,11 +5,11 @@ class Doctor
               :education,
               :salary
 
-  def initialize(args)
-    @name      = args[:name]
-    @specialty = args[:specialty]
-    @education = args[:education]
-    @salary    = args[:salary]
+  def initialize(doctor_info)
+    @name      = doctor_info[:name]
+    @specialty = doctor_info[:specialty]
+    @education = doctor_info[:education]
+    @salary    = doctor_info[:salary]
   end
 
 end

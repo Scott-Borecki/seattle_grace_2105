@@ -5,8 +5,20 @@ require './lib/hospital'
 RSpec.describe Hospital do
 
   before(:each) do
-    @meredith = Doctor.new({name: "Meredith Grey", specialty: "General Surgery", education: "Harvard University", salary: 100_000})
-    @alex = Doctor.new({name: "Alex Karev", specialty: "Pediatric Surgery", education: "Johns Hopkins University", salary: 90_000})
+    @meredith = Doctor.new({
+      name:      "Meredith Grey",
+      specialty: "General Surgery",
+      education: "Harvard University",
+      salary:    100_000
+    })
+
+    @alex = Doctor.new({
+      name:      "Alex Karev",
+      specialty: "Pediatric Surgery",
+      education: "Johns Hopkins University",
+      salary:    90_000
+    })
+
     @seattle_grace = Hospital.new("Seattle Grace", "Richard Webber", [@meredith, @alex])
   end
 
@@ -46,12 +58,14 @@ RSpec.describe Hospital do
 
     it 'can return specialties of doctors' do
       expected = ["General Surgery", "Pediatric Surgery"]
+
       expect(@seattle_grace.specialties).to be_an_instance_of(Array)
       expect(@seattle_grace.specialties).to eq(expected)
     end
 
     it 'can return doctors by name' do
       expected = ["Meredith Grey", "Alex Karev"]
+
       expect(@seattle_grace.doctors_by_name).to be_an_instance_of(Array)
       expect(@seattle_grace.doctors_by_name).to eq(expected)
     end
@@ -61,6 +75,7 @@ RSpec.describe Hospital do
         "General Surgery"   => ["Meredith Grey"],
         "Pediatric Surgery" => ["Alex Karev"]
       }
+
       expect(@seattle_grace.doctors_by_specialty).to be_an_instance_of(Hash)
       expect(@seattle_grace.doctors_by_specialty).to eq(expected)
     end
